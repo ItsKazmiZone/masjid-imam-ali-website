@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Prayer Times - Masjid Imam Ali</title>
+  
+  <meta name="description" content="View the daily congregational prayer (Salat) times, Iqamah schedules, and Salat al-Jumu'ah timings for Masjid Imam Ali. Download PDF schedules.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="pattern-bg">
+
+  <!-- Header & Navigation -->
+  <header class="top-nav" id="top-nav">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Masjid Imam Ali Home Page">
+        <span class="brand-title">مسجد امام علی</span>
+        <span class="brand-subtitle" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); font-weight: 700;">Masjid Imam Ali</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="prayer-times.html" class="nav-link">Prayer Times</a>
+        <a href="events.html" class="nav-link">Events & Majalis</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="prayer-times.html" class="btn btn-primary">
+          <span>Prayer Times</span>
+          <svg class="icon-svg arrow-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Us</a>
+      <a href="prayer-times.html" class="mobile-nav-link">Prayer Times</a>
+      <a href="events.html" class="mobile-nav-link">Events & Majalis</a>
+      <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <a href="prayer-times.html" class="btn btn-primary" style="margin-top: auto; width: 100%;">View Prayer Times</a>
+  </div>
+
+  <!-- Main Content Space -->
+  <main style="padding-top: 140px; padding-bottom: var(--space-xxl);">
+    <div class="container">
+      
+      <!-- Prayer Times Header Section (Hijri date on left/right, Location, title) -->
+      <div class="times-header-section scroll-animate">
+        <div>
+          <span class="section-subtitle" style="margin-bottom: 0;">Congregational Salat</span>
+          <h1 style="margin-top: var(--space-xs);">Daily Prayer Times</h1>
+          <div class="times-location" style="margin-top: 6px;">
+            <svg class="icon-svg" viewBox="0 0 24 24" width="16" height="16">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-width="2"/>
+              <circle cx="12" cy="10" r="3" stroke-width="2"/>
+            </svg>
+            <span>Sacred City Center — Shia Calendar</span>
+          </div>
+        </div>
+
+        <div class="times-date-box">
+          <!-- Hijri Date Box -->
+          <div class="times-hijri">
+            <svg class="icon-svg" viewBox="0 0 24 24">
+              <path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.3 5.3 0 01-7.54-7.54C12.92 3.04 12.46 3 12 3z" stroke-width="2"/>
+            </svg>
+            <span>15 Muharram 1448 AH</span>
+          </div>
+          <span style="font-size: 0.9rem; font-weight: 500; color: var(--text-muted);">Gregorian: Saturday, July 4, 2026</span>
+        </div>
+      </div>
+
+      <!-- Prayer Times Table Rows (Fajr, Sunrise, Dhuhr, Asr, Maghrib, Isha) -->
+      <div class="times-grid">
+        
+        <!-- Row 1: Fajr -->
+        <div class="prayer-row scroll-animate" id="row-fajr" aria-label="Fajr Prayer times">
+          <div class="prayer-info">
+            <div class="prayer-icon-wrapper">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M6.34 17.66l-1.41 1.41m12.72-12.72l-1.41 1.41M12 7a5 5 0 100 10 5 5 0 000-10z" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="prayer-name-group">
+              <span class="prayer-title">Fajr</span>
+              <span class="prayer-urdu">فجر</span>
+            </div>
+          </div>
+          <div class="times-times-group">
+            <div class="time-item">
+              <span class="time-item-label">Adhan</span>
+              <span class="time-item-value">4:15 AM</span>
+            </div>
+            <div class="times-divider"></div>
+            <div class="time-item">
+              <span class="time-item-label">Iqamah</span>
+              <span class="time-item-value highlight-time">4:40 AM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Sunrise (No Iqamah) -->
+        <div class="prayer-row scroll-animate" id="row-sunrise" aria-label="Sunrise time">
+          <div class="prayer-info">
+            <div class="prayer-icon-wrapper" style="background-color: var(--surface-highest); color: var(--text-muted);">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M17 18a5 5 0 00-10 0M2 20h20M12 2v4M4.93 7.93l2.83 2.83m11.32-2.83l-2.83 2.83m-9.9 1.41H3m18 0h-3.58" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="prayer-name-group">
+              <span class="prayer-title" style="color: var(--text-muted);">Sunrise</span>
+              <span class="prayer-urdu">طلوع آفتاب</span>
+            </div>
+          </div>
+          <div class="times-times-group">
+            <div class="time-item" style="min-width: 240px; text-align: right;">
+              <span class="time-item-label">Sunrise Time</span>
+              <span class="time-item-value" style="color: var(--text-muted);">5:52 AM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 3: Dhuhr (CURRENT HIGHLIGHTED) -->
+        <div class="prayer-row current-prayer scroll-animate" id="row-dhuhr" aria-label="Dhuhr active prayer times">
+          <div class="prayer-info">
+            <div class="prayer-icon-wrapper">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22">
+                <circle cx="12" cy="12" r="5" stroke-width="2"/>
+                <path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M5.64 18.36l-1.42 1.42m14.14-14.14l-1.42 1.42" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="prayer-name-group">
+              <span class="prayer-title">Dhuhr <span class="current-tag">Current</span></span>
+              <span class="prayer-urdu">ظہر</span>
+            </div>
+          </div>
+          <div class="times-times-group">
+            <div class="time-item">
+              <span class="time-item-label">Adhan</span>
+              <span class="time-item-value">1:12 PM</span>
+            </div>
+            <div class="times-divider"></div>
+            <div class="time-item">
+              <span class="time-item-label">Iqamah</span>
+              <span class="time-item-value highlight-time">1:30 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 4: Asr -->
+        <div class="prayer-row scroll-animate" id="row-asr" aria-label="Asr prayer times">
+          <div class="prayer-info">
+            <div class="prayer-icon-wrapper">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m11.314 11.314l.707.707M12 8a4 4 0 100 8 4 4 0 000-8z" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="prayer-name-group">
+              <span class="prayer-title">Asr</span>
+              <span class="prayer-urdu">عصر</span>
+            </div>
+          </div>
+          <div class="times-times-group">
+            <div class="time-item">
+              <span class="time-item-label">Adhan</span>
+              <span class="time-item-value">5:15 PM</span>
+            </div>
+            <div class="times-divider"></div>
+            <div class="time-item">
+              <span class="time-item-label">Iqamah</span>
+              <span class="time-item-value highlight-time">5:30 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5: Maghrib -->
+        <div class="prayer-row scroll-animate" id="row-maghrib" aria-label="Maghrib prayer times">
+          <div class="prayer-info">
+            <div class="prayer-icon-wrapper">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M12 3a9 9 0 00-9 9h18a9 9 0 00-9-9zm-9 9h18M3 16h18m-16 4h12" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="prayer-name-group">
+              <span class="prayer-title">Maghrib</span>
+              <span class="prayer-urdu">مغرب</span>
+            </div>
+          </div>
+          <div class="times-times-group">
+            <div class="time-item">
+              <span class="time-item-label">Adhan</span>
+              <span class="time-item-value">8:32 PM</span>
+            </div>
+            <div class="times-divider"></div>
+            <div class="time-item">
+              <span class="time-item-label">Iqamah</span>
+              <span class="time-item-value highlight-time">8:55 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 6: Isha -->
+        <div class="prayer-row scroll-animate" id="row-isha" aria-label="Isha prayer times">
+          <div class="prayer-info">
+            <div class="prayer-icon-wrapper">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="22" height="22">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="prayer-name-group">
+              <span class="prayer-title">Isha</span>
+              <span class="prayer-urdu">عشاء</span>
+            </div>
+          </div>
+          <div class="times-times-group">
+            <div class="time-item">
+              <span class="time-item-label">Adhan</span>
+              <span class="time-item-value">9:50 PM</span>
+            </div>
+            <div class="times-divider"></div>
+            <div class="time-item">
+              <span class="time-item-label">Iqamah</span>
+              <span class="time-item-value highlight-time">10:05 PM</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Salat al-Jumu'ah Special Section Card Banner -->
+      <div class="jumua-banner scroll-animate">
+        <div class="jumua-banner-bg"></div>
+        <div class="jumua-content">
+          <div class="jumua-text">
+            <div class="jumua-badge">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="32" height="32" stroke="currentColor">
+                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.953 11.953 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2.5"/>
+              </svg>
+            </div>
+            <h2 style="color: #ffffff; font-weight: 700; margin-bottom: var(--space-xs);">Salat al-Jumu'ah Schedule</h2>
+            <p style="color: rgba(255, 255, 255, 0.85); font-size: 1.05rem; margin-bottom: 0;">Join us every Friday for the sacred congregational Friday prayers. Lectures are presented in English and Arabic, followed by the Jumu'ah prayer led by Sayyid Hashim Al-Alawi.</p>
+          </div>
+          <div class="jumua-times">
+            <div class="jumua-time-card">
+              <span class="label">Sermon (Khutbah)</span>
+              <span class="value white">1:00 PM</span>
+            </div>
+            <div class="jumua-time-card">
+              <span class="label">Prayer (Salat)</span>
+              <span class="value">1:30 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+  </main>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <span class="footer-brand-title">مسجد امام علی</span>
+          <p style="font-size: 0.95rem; line-height: 1.6; margin-top: var(--space-xs);">A peaceful and inclusive community hub offering sacred prayers, scholarly research, youth mentoring, and family guidance in strict adherence to the Quran and the teachings of the Ahl al-Bayt (a.s.).</p>
+          <div class="footer-social-links">
+            <a href="#" class="footer-social-link" aria-label="Follow us on YouTube">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z" stroke="currentColor" fill="none" stroke-width="2"/>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Join our Telegram Channel">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M21.13 2.92a.85.85 0 00-.83.08L2.24 11.12a.85.85 0 00.08 1.55l5.27 1.95 2 6.23a.85.85 0 001.44.31l3.18-3.18 5 3.7a.85.85 0 001.37-.58l3.18-17a.85.85 0 00-.63-.98z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Visit our Facebook Page">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" fill="none" stroke-width="2"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Follow our Instagram Feed">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" fill="none" stroke-width="2"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" fill="none" stroke-width="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-info-col">
+          <span class="footer-col-title">Contact & Location</span>
+          <ul class="footer-contact-list">
+            <li><strong>Address:</strong> 110 Imam Ali Avenue, Sacred City Center</li>
+            <li><strong>Email:</strong> admin@masjidimamali.org</li>
+            <li><strong>Phone:</strong> +1 (555) 786-1110</li>
+            <li class="pt-2"><strong>Office Hours:</strong> <br>Daily: 11:00 AM - 9:00 PM</li>
+          </ul>
+        </div>
+
+        <div class="footer-map-col">
+          <span class="footer-col-title">Find Us On Map</span>
+          <div style="border-radius: var(--radius-lg); overflow: hidden; height: 180px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); background-color: var(--surface-highest);">
+            <img src="src/assets/images/mosque_courtyard_1783233357322.jpg" alt="Map localization placeholder of Masjid Imam Ali" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.85);">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; 2026 Masjid Imam Ali. All rights reserved. Built for eternal peace and academic guidance.</span>
+        <div class="footer-legal-links">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Use</a>
+          <a href="contact.html" class="footer-legal-link">Contact Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

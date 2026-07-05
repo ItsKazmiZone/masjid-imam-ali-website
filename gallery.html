@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Architecture & Community Gallery - Masjid Imam Ali</title>
+  
+  <meta name="description" content="Explore the beautiful geometric Islamic architecture, calligraphy carvings, dome interior, library, and congregational gatherings at Masjid Imam Ali.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="pattern-bg">
+
+  <!-- Header & Navigation -->
+  <header class="top-nav" id="top-nav">
+    <div class="container">
+      <a href="index.html" class="brand" aria-label="Masjid Imam Ali Home Page">
+        <span class="brand-title">مسجد امام علی</span>
+        <span class="brand-subtitle" style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--text-muted); font-weight: 700;">Masjid Imam Ali</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="prayer-times.html" class="nav-link">Prayer Times</a>
+        <a href="events.html" class="nav-link">Events & Majalis</a>
+        <a href="gallery.html" class="nav-link">Gallery</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="prayer-times.html" class="btn btn-primary">
+          <span>Prayer Times</span>
+          <svg class="icon-svg arrow-svg" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Overlay -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <div class="mobile-nav-links">
+      <a href="index.html" class="mobile-nav-link">Home</a>
+      <a href="about.html" class="mobile-nav-link">About Us</a>
+      <a href="prayer-times.html" class="mobile-nav-link">Prayer Times</a>
+      <a href="events.html" class="mobile-nav-link">Events & Majalis</a>
+      <a href="gallery.html" class="mobile-nav-link">Gallery</a>
+      <a href="contact.html" class="mobile-nav-link">Contact</a>
+    </div>
+    <a href="prayer-times.html" class="btn btn-primary" style="margin-top: auto; width: 100%;">View Prayer Times</a>
+  </div>
+
+  <!-- Banner Header -->
+  <section class="section-padding" style="background-color: var(--surface-low); padding-top: 140px; border-bottom: 1px solid var(--border);">
+    <div class="container text-center">
+      <span class="section-subtitle">Visual Sanctuary</span>
+      <h1>Our Architecture & Assemblies</h1>
+      <p style="max-width: 600px; margin: var(--space-sm) auto 0 auto; font-size: 1.1rem; color: var(--text-muted);">A visual showcase of Masjid Imam Ali - featuring detailed mosaic architecture, the grand dome, our library sanctuary, and community assemblies.</p>
+    </div>
+  </section>
+
+  <!-- Gallery Grid and Filtering -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- Filtering Tabs Container -->
+      <div class="tabs-container scroll-animate" id="gallery-tabs">
+        <button class="tab-btn active" data-filter="all">All Photos</button>
+        <button class="tab-btn" data-filter="architecture">Architecture</button>
+        <button class="tab-btn" data-filter="assemblies">Assemblies</button>
+        <button class="tab-btn" data-filter="library">Library</button>
+        <button class="tab-btn" data-filter="community">Community</button>
+      </div>
+
+      <!-- Mosaic Grid Layout (Combines custom width tiles) -->
+      <div class="gallery-grid" id="gallery-grid">
+        
+        <!-- Item 1: Dome Interior (Architecture, col-span-2) -->
+        <div class="gallery-item col-span-2 scroll-animate" data-category="architecture" data-src="src/assets/images/mosque_dome_interior_1783233321741.jpg">
+          <img src="src/assets/images/mosque_dome_interior_1783233321741.jpg" alt="Beautiful geometry carvings inside the Masjid dome ceiling" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Geometric Grand Dome Interior</h4>
+            <span class="gallery-tag">Architecture</span>
+          </div>
+        </div>
+
+        <!-- Item 2: Mosque Library (Library) -->
+        <div class="gallery-item scroll-animate" data-category="library" data-src="src/assets/images/mosque_library_1783233340549.jpg">
+          <img src="src/assets/images/mosque_library_1783233340549.jpg" alt="Calm reading sanctuary inside Islamic library" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Scholarly Research Library</h4>
+            <span class="gallery-tag">Library</span>
+          </div>
+        </div>
+
+        <!-- Item 3: Mosque Courtyard (Community) -->
+        <div class="gallery-item scroll-animate" data-category="community" data-src="src/assets/images/mosque_courtyard_1783233357322.jpg">
+          <img src="src/assets/images/mosque_courtyard_1783233357322.jpg" alt="Clean marble courtyard with central reflection pool" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Courtyard Reflection Pool</h4>
+            <span class="gallery-tag">Community</span>
+          </div>
+        </div>
+
+        <!-- Item 4: Mosque Exterior Dusk (Assemblies, col-span-2) -->
+        <div class="gallery-item col-span-2 scroll-animate" data-category="assemblies" data-src="src/assets/images/mosque_hero_emerald_1783233305655.jpg">
+          <img src="src/assets/images/mosque_hero_emerald_1783233305655.jpg" alt="Pristine exterior profile of Masjid Imam Ali dome at dusk" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Masjid Main Profile at Dusk</h4>
+            <span class="gallery-tag">Assemblies</span>
+          </div>
+        </div>
+
+        <!-- Item 5: Intricate Arabesque Carvings (Architecture) -->
+        <div class="gallery-item scroll-animate" data-category="architecture" data-src="src/assets/images/mosque_dome_interior_1783233321741.jpg">
+          <img src="src/assets/images/mosque_dome_interior_1783233321741.jpg" alt="Islamic arabesque wood carvings and scripture lines" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Intricate Arabesque Details</h4>
+            <span class="gallery-tag">Architecture</span>
+          </div>
+        </div>
+
+        <!-- Item 6: Study Desks (Library) -->
+        <div class="gallery-item scroll-animate" data-category="library" data-src="src/assets/images/mosque_library_1783233340549.jpg">
+          <img src="src/assets/images/mosque_library_1783233340549.jpg" alt="Wooden desks with reading lamps inside quiet library corridors" class="gallery-img" loading="lazy">
+          <div class="gallery-overlay">
+            <h4 class="gallery-title">Tranquil Study Corridors</h4>
+            <span class="gallery-tag">Library</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <span class="footer-brand-title">مسجد امام علی</span>
+          <p style="font-size: 0.95rem; line-height: 1.6; margin-top: var(--space-xs);">A peaceful and inclusive community hub offering sacred prayers, scholarly research, youth mentoring, and family guidance in strict adherence to the Quran and the teachings of the Ahl al-Bayt (a.s.).</p>
+          <div class="footer-social-links">
+            <a href="#" class="footer-social-link" aria-label="Follow us on YouTube">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z" stroke="currentColor" fill="none" stroke-width="2"/>
+                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Join our Telegram Channel">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M21.13 2.92a.85.85 0 00-.83.08L2.24 11.12a.85.85 0 00.08 1.55l5.27 1.95 2 6.23a.85.85 0 001.44.31l3.18-3.18 5 3.7a.85.85 0 001.37-.58l3.18-17a.85.85 0 00-.63-.98z" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Visit our Facebook Page">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" stroke="currentColor" fill="none" stroke-width="2"/>
+              </svg>
+            </a>
+            <a href="#" class="footer-social-link" aria-label="Follow our Instagram Feed">
+              <svg class="icon-svg" viewBox="0 0 24 24" width="20" height="20">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" fill="none" stroke-width="2"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zM17.5 6.5h.01" stroke="currentColor" fill="none" stroke-width="2"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-info-col">
+          <span class="footer-col-title">Contact & Location</span>
+          <ul class="footer-contact-list">
+            <li><strong>Address:</strong> 110 Imam Ali Avenue, Sacred City Center</li>
+            <li><strong>Email:</strong> admin@masjidimamali.org</li>
+            <li><strong>Phone:</strong> +1 (555) 786-1110</li>
+            <li class="pt-2"><strong>Office Hours:</strong> <br>Daily: 11:00 AM - 9:00 PM</li>
+          </ul>
+        </div>
+
+        <div class="footer-map-col">
+          <span class="footer-col-title">Find Us On Map</span>
+          <div style="border-radius: var(--radius-lg); overflow: hidden; height: 180px; border: 1px solid var(--border); box-shadow: var(--shadow-sm); background-color: var(--surface-highest);">
+            <img src="src/assets/images/mosque_courtyard_1783233357322.jpg" alt="Map localization placeholder of Masjid Imam Ali" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(0.85);">
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span class="footer-copyright">&copy; 2026 Masjid Imam Ali. All rights reserved. Built for eternal peace and academic guidance.</span>
+        <div class="footer-legal-links">
+          <a href="#" class="footer-legal-link">Privacy Policy</a>
+          <a href="#" class="footer-legal-link">Terms of Use</a>
+          <a href="contact.html" class="footer-legal-link">Contact Admin</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/gallery.js" defer></script>
+</body>
+</html>

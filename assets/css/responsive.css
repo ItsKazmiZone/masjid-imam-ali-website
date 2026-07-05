@@ -1,0 +1,329 @@
+/* ==========================================================================
+   Masjid Imam Ali - Responsive Stylesheet
+   Breakpoints: 1440px, 1200px, 992px, 768px, 576px, 375px
+   Author: Senior Frontend Engineer & UI/UX Designer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Breakpoint: 1440px (Large Desktops)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1440px) {
+  .container {
+    max-width: 1240px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint: 1200px (Laptops)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+  
+  /* Hero section adjustments */
+  .hero-grid {
+    gap: var(--space-md);
+  }
+  
+  /* Bento Grid Layout collapses to 2 columns if needed, but 3 columns is still okay here. We decrease gaps. */
+  .bento-grid, .events-grid, .facilities-grid, .gallery-grid {
+    gap: var(--space-md);
+  }
+  
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Footer layout */
+  .footer-top {
+    gap: var(--space-lg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint: 992px (Tablets - Landscape)
+   -------------------------------------------------------------------------- */
+@media (max-width: 992px) {
+  .container {
+    max-width: 720px;
+  }
+  
+  .section-padding {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+  
+  /* Hero grid collapses to single column */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .hero-content {
+    grid-column: span 12;
+    text-align: center;
+  }
+  
+  .hero-badge {
+    align-self: center;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-quick-card {
+    grid-column: span 12;
+    max-width: 500px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  /* Bento center grid becomes 2-column or collapses */
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .bento-card.col-2 {
+    grid-column: span 2;
+  }
+  
+  /* Events Grid becomes 2-column */
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Facilities section collapses */
+  .facilities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Gallery Grid collapses to 2 columns */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Contact section collapses to single column */
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group.full-width {
+    grid-column: span 1;
+  }
+  
+  /* Jumu'ah special banner collapses */
+  .jumua-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .jumua-text {
+    max-width: 100%;
+  }
+  
+  .jumua-times {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Footer responsive layout */
+  .footer-top {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-brand-col {
+    grid-column: span 12;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .footer-info-col {
+    grid-column: span 12;
+    text-align: center;
+  }
+  
+  .footer-map-col {
+    grid-column: span 12;
+    height: 250px;
+  }
+  
+  .footer-contact-list {
+    align-items: center;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint: 768px (Tablets - Portrait & Large Phones)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+    padding-right: var(--space-md);
+    padding-left: var(--space-md);
+  }
+  
+  /* Navigation modifications */
+  .nav-links, .nav-cta .btn {
+    display: none; /* Hide desktop nav links & cta button */
+  }
+  
+  .menu-toggle {
+    display: flex; /* Show burger menu */
+  }
+  
+  /* Prayer times row collapse to vertical or more stacked layout */
+  .prayer-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+  
+  .times-times-group {
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--background);
+    padding: var(--space-sm);
+    border-radius: var(--radius-md);
+    gap: var(--space-md);
+  }
+  
+  .time-item {
+    text-align: center;
+    flex: 1;
+    min-width: unset;
+  }
+  
+  .times-divider {
+    display: none;
+  }
+  
+  /* Header scroll layout adjustments */
+  .times-header-section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .times-date-box {
+    align-items: center;
+    margin-top: var(--space-md);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint: 576px (Mobile Landscape & Portrait)
+   -------------------------------------------------------------------------- */
+@media (max-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+  
+  /* Text changes */
+  .brand-title {
+    font-size: 1.15rem;
+  }
+  
+  /* Hero button stacking */
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-buttons .btn {
+    width: 100%;
+  }
+  
+  /* Bento Grid collapse completely to single column */
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .bento-card.col-2 {
+    grid-column: span 1;
+  }
+  
+  /* Bento Imambargah row collapsing */
+  .bento-flex-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .bento-flex-img {
+    width: 100%;
+    height: 180px;
+  }
+  
+  /* Events list collapses to single column */
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Facilities Grid collapses to single column */
+  .facilities-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Contact section layout */
+  .contact-cards {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Jumu'ah times stack */
+  .jumua-times {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-sm);
+  }
+  
+  .jumua-time-card {
+    min-width: 100%;
+  }
+  
+  /* Lightbox navigation elements move slightly */
+  .lightbox-prev {
+    left: -12px;
+  }
+  
+  .lightbox-next {
+    right: -12px;
+  }
+  
+  .lightbox-nav {
+    width: 40px;
+    height: 40px;
+    background: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Breakpoint: 375px (Compact Phones)
+   -------------------------------------------------------------------------- */
+@media (max-width: 375px) {
+  /* Minimal margins and padding */
+  .container {
+    padding-right: var(--space-sm);
+    padding-left: var(--space-sm);
+  }
+  
+  .brand-title {
+    font-size: 1rem;
+  }
+  
+  /* Mobile drawer width */
+  .mobile-drawer {
+    width: 270px;
+  }
+  
+  /* Adjustments to times */
+  .time-item-value {
+    font-size: 1.6rem;
+  }
+}

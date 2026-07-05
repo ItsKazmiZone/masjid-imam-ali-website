@@ -1,0 +1,1945 @@
+/* ==========================================================================
+   Masjid Imam Ali - Main Stylesheet
+   Theme: Sacred Serenity (Emerald & Gold)
+   Author: Senior Frontend Engineer & UI/UX Designer
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens & CSS Variables
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand Colors */
+  --primary: #003820;              /* Sacred Deep Emerald */
+  --primary-light: #0f5132;        /* Vibrant Emerald */
+  --primary-rgb: 0, 56, 32;
+  --secondary: #c9a227;            /* Divine Gold */
+  --secondary-light: #ffe08e;      /* Soft Gold Accent */
+  --secondary-rgb: 201, 162, 39;
+  
+  /* Neutral Palette */
+  --background: #fcf9f8;           /* Warm Alabaster Off-White */
+  --surface: #ffffff;              /* Pure White for Cards */
+  --surface-low: #f6f3f2;          /* Light Gray/Beige for Sections */
+  --surface-container: #f0eded;    /* Elevated Surfaces */
+  --surface-highest: #e5e2e1;
+  
+  /* Text Colors (Ensures WCAG AAA High Contrast) */
+  --text-main: #1b1c1c;            /* Near Black for Primary Readability */
+  --text-muted: #404942;           /* Dark Olive-Gray for Body & Descriptions */
+  --text-on-primary: #ffffff;
+  
+  /* Borders & Dividers */
+  --border: rgba(192, 201, 192, 0.4); /* Soft Outline */
+  --border-focus: #0f5132;
+  
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-urdu: 'Noto Nastaliq Urdu', "Urdu Typesetting", serif;
+  
+  /* Layout Spacing (8px Rhythmic Scale) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 48px;
+  --space-xxl: 80px;
+  
+  /* Animation Timing */
+  --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.06);
+  --shadow-inset: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+/* --------------------------------------------------------------------------
+   2. Base Styles & Resets
+   -------------------------------------------------------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Fluid Hierarchy (Clamp) */
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--primary);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--primary);
+}
+
+h3 {
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--primary);
+}
+
+h4 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+p {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Focus States (WCAG Accessibility Compliant) */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 4px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Custom Layout Helpers & Common Patterns
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-lg);
+  padding-left: var(--space-lg);
+}
+
+.section-padding {
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid {
+  display: grid;
+}
+
+/* Urdu Text Styling */
+.urdu-display {
+  font-family: var(--font-urdu);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 2.2;
+  font-weight: 400;
+  color: var(--primary-light);
+  direction: rtl;
+  text-align: center;
+}
+
+.urdu-body {
+  font-family: var(--font-urdu);
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  line-height: 2.5;
+  font-weight: 400;
+  color: var(--text-muted);
+  direction: rtl;
+}
+
+/* Radial Pattern Background */
+.pattern-bg {
+  position: relative;
+}
+.pattern-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--border) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-md);
+}
+
+/* Text Gradient Effect */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* SVG Custom Icon Alignment */
+.icon-svg {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vertical-align: middle;
+}
+
+/* --------------------------------------------------------------------------
+   4. Header & Navigation (Sticky & Mobile Drawer)
+   -------------------------------------------------------------------------- */
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(252, 249, 248, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(192, 201, 192, 0.15);
+  transition: transform var(--transition-normal), background var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.top-nav.nav-scrolled {
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  border-bottom: 1px solid var(--border);
+}
+
+.top-nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-urdu);
+  font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+  color: var(--primary);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.nav-link {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  position: relative;
+  padding: 6px 0;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--secondary);
+  transition: width var(--transition-fast) ease, left var(--transition-fast) ease;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+/* Burger Menu button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 100%;
+  height: 2.5px;
+  background-color: var(--primary);
+  border-radius: 2px;
+  transition: all var(--transition-normal);
+}
+
+/* Mobile Nav Drawer overlay */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 320px;
+  height: 100vh;
+  background-color: var(--surface);
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
+  padding: 100px var(--space-lg) var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  transition: right var(--transition-normal);
+}
+
+.mobile-drawer.open {
+  right: 0;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.mobile-nav-link {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobile-nav-link.active, .mobile-nav-link:hover {
+  color: var(--primary);
+  border-bottom-color: var(--secondary);
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.drawer-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Burger Animation on open */
+.menu-toggle.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.menu-toggle.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   5. Buttons & Interactive Elements
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-align: center;
+  gap: var(--space-sm);
+  letter-spacing: 0.02em;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 56, 32, 0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 56, 32, 0.04);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background-color: rgba(0, 56, 32, 0.02);
+}
+
+.btn-accent {
+  background-color: rgba(201, 162, 39, 0.1);
+  color: var(--secondary);
+  border: 1px solid rgba(201, 162, 39, 0.2);
+}
+
+.btn-accent:hover {
+  background-color: rgba(201, 162, 39, 0.2);
+}
+
+/* Arrow slide-in on hover for buttons with class .arrow-hover */
+.btn .arrow-svg {
+  transition: transform var(--transition-fast);
+}
+.btn:hover .arrow-svg {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   6. Hero & Interactive Intros
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: var(--space-xxl);
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-cover: cover;
+  object-position: center;
+  transform: scale(1.02);
+  filter: brightness(0.95);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(252, 249, 248, 0.98) 0%, rgba(252, 249, 248, 0.85) 60%, rgba(252, 249, 248, 0.2) 100%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.hero-content {
+  grid-column: span 7;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.hero-badge {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  background-color: rgba(0, 56, 32, 0.08);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(0, 56, 32, 0.15);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-sm);
+}
+
+.hero-quick-card {
+  grid-column: span 5;
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.hero-quick-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(201, 162, 39, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.hero-card-header h3 {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.hero-card-header .badge {
+  background: rgba(201, 162, 39, 0.15);
+  color: var(--secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hero-card-body {
+  text-align: center;
+  padding: var(--space-md) 0;
+}
+
+.hero-card-time {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+}
+
+.hero-card-subtime {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: var(--space-sm);
+}
+
+.hero-card-footer {
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-md);
+  margin-top: var(--space-md);
+}
+
+.upcoming-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upcoming-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.upcoming-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.upcoming-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.upcoming-icon {
+  background-color: var(--background);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  padding: 10px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.upcoming-banner:hover .upcoming-icon {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+/* --------------------------------------------------------------------------
+   7. Bento Layout (Our Center / Features)
+   -------------------------------------------------------------------------- */
+.bento-section {
+  background-color: var(--background);
+}
+
+.section-header {
+  margin-bottom: var(--space-xl);
+}
+
+.section-subtitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--secondary);
+  margin-bottom: var(--space-sm);
+}
+
+.section-desc {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-top: var(--space-sm);
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.bento-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.bento-card.col-2 {
+  grid-column: span 2;
+}
+
+.bento-card-icon {
+  align-self: flex-start;
+  background-color: rgba(0, 56, 32, 0.06);
+  color: var(--primary);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.bento-card:hover .bento-card-icon {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.bento-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: var(--space-sm);
+  font-weight: 600;
+}
+
+.bento-card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.bento-card-btn {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.bento-card-btn span {
+  transition: transform var(--transition-fast);
+}
+.bento-card-btn:hover span {
+  transform: translateX(3px);
+}
+
+/* Bento Imambargah Custom Horizontal design */
+.bento-flex-row {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: center;
+  text-align: left;
+}
+
+.bento-flex-img {
+  width: 140px;
+  height: 140px;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.bento-flex-content {
+  flex-grow: 1;
+}
+
+.bento-card .tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  background-color: var(--surface-low);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. Prayer Times Schedule Page Styling
+   -------------------------------------------------------------------------- */
+.times-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.times-date-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-xs);
+}
+
+.times-hijri {
+  background-color: var(--surface-low);
+  border: 1px solid var(--border);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.times-hijri .icon-svg {
+  color: var(--secondary);
+  width: 16px;
+  height: 16px;
+}
+
+.times-location {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.times-location .icon-svg {
+  width: 16px;
+  height: 16px;
+  color: var(--primary);
+}
+
+.times-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.prayer-row {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.prayer-row:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(0, 56, 32, 0.15);
+}
+
+.prayer-row.current-prayer {
+  border-left: 4px solid var(--secondary);
+  box-shadow: var(--shadow-md);
+  background-color: var(--surface-low);
+  transform: scale(1.01);
+}
+
+.prayer-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-shrink: 0;
+}
+
+.prayer-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: rgba(0, 56, 32, 0.06);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.current-prayer .prayer-icon-wrapper {
+  background-color: var(--secondary);
+  color: var(--text-on-primary);
+  box-shadow: 0 4px 10px rgba(201, 162, 39, 0.25);
+}
+
+.prayer-name-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.prayer-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.current-tag {
+  background: rgba(201, 162, 39, 0.15);
+  color: var(--secondary);
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.prayer-urdu {
+  font-family: var(--font-urdu);
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.times-times-group {
+  display: flex;
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.time-item {
+  text-align: right;
+  min-width: 100px;
+}
+
+.time-item-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-xs);
+}
+
+.time-item-value {
+  font-size: clamp(1.8rem, 4vw, 2.3rem);
+  font-weight: 700;
+  color: var(--text-muted);
+  line-height: 1;
+}
+
+.prayer-row.current-prayer .time-item-value {
+  color: var(--primary);
+}
+
+.time-item-value.highlight-time {
+  color: var(--primary);
+}
+
+.times-divider {
+  width: 1px;
+  height: 40px;
+  background-color: var(--border);
+}
+
+/* Salat al-Jumu'ah section banner */
+.jumua-banner {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  margin-top: var(--space-xl);
+}
+
+.jumua-banner-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(#ffffff 1.2px, transparent 1.2px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.jumua-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.jumua-text {
+  max-width: 50%;
+}
+
+.jumua-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary);
+  color: var(--text-on-primary);
+  box-shadow: 0 4px 15px rgba(201, 162, 39, 0.4);
+  margin-bottom: var(--space-md);
+}
+
+.jumua-times {
+  display: flex;
+  gap: var(--space-md);
+}
+
+.jumua-time-card {
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  min-width: 160px;
+  text-align: center;
+}
+
+.jumua-time-card .label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  display: block;
+  margin-bottom: var(--space-sm);
+}
+
+.jumua-time-card .value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--secondary-light);
+  line-height: 1;
+}
+
+.jumua-time-card .value.white {
+  color: #ffffff;
+}
+
+/* Downloader and Notification Actions */
+.times-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   9. Events Page Styling (Tabs, Grid, Filtering, Save Action)
+   -------------------------------------------------------------------------- */
+.tabs-container {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-xl);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: var(--surface-low);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  background-color: var(--surface-container);
+  color: var(--primary);
+}
+
+.tab-btn.active {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+}
+
+.event-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.event-img-wrapper {
+  position: relative;
+  height: 200px;
+  background-color: var(--surface-low);
+}
+
+.event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.event-card:hover .event-img {
+  transform: scale(1.04);
+}
+
+.event-badge {
+  position: absolute;
+  top: var(--space-md);
+  right: var(--space-md);
+  background-color: var(--secondary-light);
+  color: var(--secondary-container-on, #584400);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+}
+
+.event-body {
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.event-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: var(--space-xs);
+  line-height: 1.3;
+}
+
+.event-hijri {
+  font-size: 0.85rem;
+  color: var(--secondary);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: var(--space-md);
+}
+
+.event-hijri .icon-svg {
+  width: 14px;
+  height: 14px;
+}
+
+.event-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.event-meta-item {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.event-meta-item .icon-svg {
+  color: var(--primary);
+  margin-top: 2px;
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.event-meta-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.event-meta-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.event-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: var(--space-lg);
+  flex-grow: 1;
+}
+
+.event-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-md);
+  margin-top: auto;
+}
+
+.event-bookmark-btn {
+  color: var(--secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-fast);
+}
+
+.event-bookmark-btn:hover {
+  background-color: rgba(201, 162, 39, 0.08);
+}
+
+.event-bookmark-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  transition: fill var(--transition-fast);
+}
+
+.event-bookmark-btn.saved svg {
+  fill: var(--secondary);
+}
+
+.load-more-container {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-xl);
+}
+
+/* --------------------------------------------------------------------------
+   10. Gallery Grid, Lightbox & Category Filtering
+   -------------------------------------------------------------------------- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.gallery-item.col-span-2 {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 56, 32, 0.85) 0%, rgba(0, 56, 32, 0.2) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.05);
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-title {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.gallery-tag {
+  color: var(--secondary-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Lightbox Styling */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(27, 28, 28, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-normal), visibility var(--transition-normal);
+  padding: var(--space-lg);
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-content-wrapper {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.lightbox-img-container {
+  width: 100%;
+  max-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: scaleUp var(--transition-normal);
+}
+
+.lightbox-caption {
+  text-align: center;
+  color: #ffffff;
+}
+
+.lightbox-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.lightbox-category {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--secondary-light);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  color: #ffffff;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-fast);
+}
+
+.lightbox-close:hover {
+  color: var(--secondary-light);
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  z-index: 2010;
+}
+
+.lightbox-nav:hover {
+  background-color: var(--secondary);
+  border-color: var(--secondary);
+  color: var(--text-on-primary);
+}
+
+.lightbox-prev {
+  left: -64px;
+}
+
+.lightbox-next {
+  right: -64px;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   11. About & Contact Page Elements
+   -------------------------------------------------------------------------- */
+/* Facilities Section */
+.facilities-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  position: relative;
+  z-index: 10;
+}
+
+.facility-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform var(--transition-normal);
+}
+
+.facility-card:hover {
+  transform: translateY(-4px);
+}
+
+.facility-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background-color: var(--surface-low);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+.facility-card:hover .facility-icon-wrapper {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+}
+
+.facility-card h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+/* Management list */
+.mgmt-card {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.mgmt-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.mgmt-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast);
+}
+
+.mgmt-item:last-child {
+  border-bottom: none;
+}
+
+.mgmt-item:hover {
+  background-color: var(--surface-low);
+}
+
+.mgmt-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--secondary-light);
+  color: var(--secondary-container-on, #584400);
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mgmt-item:nth-child(even) .mgmt-avatar {
+  background-color: var(--surface-highest);
+  color: var(--text-main);
+}
+
+.mgmt-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.mgmt-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Contact Cards & Map side-by-side */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.contact-info-card {
+  background-color: var(--surface-low);
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  display: flex;
+  gap: var(--space-sm);
+  align-items: flex-start;
+}
+
+.contact-info-card .icon-svg {
+  color: var(--primary);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.contact-info-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: var(--space-xs);
+}
+
+.contact-info-card p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin-bottom: 0;
+}
+
+.contact-map-wrapper {
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  min-height: 300px;
+  position: relative;
+}
+
+.contact-map-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(0.95) brightness(1.02);
+}
+
+/* Contact Form Styling */
+.contact-form-container {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.form-group.full-width {
+  grid-column: span 2;
+}
+
+.form-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  background-color: var(--background);
+  color: var(--text-main);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus {
+  border-color: var(--primary-light);
+  box-shadow: 0 0 0 3px rgba(15, 81, 50, 0.1);
+  outline: none;
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Success notification toast (Hidden initially) */
+.form-success-message {
+  display: none;
+  background-color: rgba(15, 81, 50, 0.1);
+  border: 1px solid rgba(15, 81, 50, 0.2);
+  color: var(--primary-light);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-lg);
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   12. Footer Section & Back-to-Top Button
+   -------------------------------------------------------------------------- */
+.footer {
+  background-color: var(--surface-low);
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-lg);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer-brand-col {
+  grid-column: span 5;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.footer-brand-title {
+  font-family: var(--font-urdu);
+  font-size: 1.5rem;
+  color: var(--primary);
+  font-weight: 600;
+}
+
+.footer-social-links {
+  display: flex;
+  gap: var(--space-md);
+  color: var(--text-muted);
+}
+
+.footer-social-link {
+  padding: 8px;
+  background-color: var(--surface);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  transition: all var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  border-color: var(--primary);
+}
+
+.footer-info-col {
+  grid-column: span 3;
+}
+
+.footer-col-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: var(--space-md);
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.footer-contact-list li {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.footer-contact-list .pt-2 {
+  padding-top: var(--space-xs);
+}
+
+.footer-map-col {
+  grid-column: span 4;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding-top: var(--space-lg);
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer-copyright {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-legal-links {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.footer-legal-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.footer-legal-link:hover {
+  color: var(--secondary);
+}
+
+/* Scroll to Top button */
+.scroll-to-top {
+  position: fixed;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  background-color: var(--primary);
+  color: var(--text-on-primary);
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-normal);
+  z-index: 99;
+}
+
+.scroll-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-to-top:hover {
+  background-color: var(--primary-light);
+  transform: translateY(-4px);
+}
+
+/* Intersection Observer Scroll Animations */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.scroll-animate.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   13. Multi-Section Layout Grid Columns
+   -------------------------------------------------------------------------- */
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.gap-gutter {
+  gap: var(--space-lg);
+}
+
+.gap-md {
+  gap: var(--space-md);
+}
+
+.gap-sm {
+  gap: var(--space-sm);
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
